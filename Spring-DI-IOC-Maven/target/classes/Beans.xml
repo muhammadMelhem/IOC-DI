@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="employeedetails"
+		class="com.abcCompany.domain.EmployeeDetails">
+		<constructor-arg name="name" value="Muhammad melhem"
+			index="0">
+		</constructor-arg>
+		<constructor-arg name="age" value="100" index="1"></constructor-arg>
+		<constructor-arg name="department"
+			value="software development " index="2">
+		</constructor-arg>
+		<property name="employeeService" ref="EmpServiceImp"></property>
+	</bean>
+	<bean class="com.abcCompany.EmployeeServiceImp.EmpServiceImp"
+		id="EmpServiceImp">
+	</bean>
+	<bean id="employeeexperience"
+	class="com.abcCompany.domain.EmployeeExperience">
+		<constructor-arg name="empExpService"
+			ref="employeeexperienceImp" index="0">
+		</constructor-arg>
+		<constructor-arg name="empDetails"
+			ref="employeedetails" index="1">
+		</constructor-arg>
+		<property name="companyName" value="abcCompany"></property>
+		<property name="projects" value="Bla..bla"></property>
+		<property name="startDate" value="1/1/2000"></property>
+		<property name="endDate" value="1/1/2018"></property>
+	</bean>
+	<bean id="employeeexperienceImp"
+		class="com.abcCompany.EmployeeServiceImp.EmployeeExperienceServiceImp">
+	</bean>
+</beans>
